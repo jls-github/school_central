@@ -1,2 +1,13 @@
-<%= @course.title %>
-<%= "#{@course.subject} - #{@course.number}" %>
+<h3><%= @course.title %></h3>
+<h4><%= "#{@course.subject} - #{@course.number}" %></h4>
+<br />
+<h4>Lectures</h4>
+<% if @lectures %>
+    <ul>
+    <% @lectures.each do |lecture| %>
+        <li><%= link_to lecture.title, lecture %></li>
+    <% end %>
+    </ul>
+<% else %>
+    <p>No listed lectures</p>
+<% end %>
