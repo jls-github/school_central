@@ -1,0 +1,9 @@
+<h3><%= @teacher.name %></h3>
+<h4>Biography</h4>
+<p><%= @teacher.bio %></p>
+<h4>Courses</h4>
+<ul>
+<% @courses.each do |course| %>
+    <li><%= course.title %></li>
+<% end %>
+</ul>
