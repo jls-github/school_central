@@ -3,4 +3,8 @@
 <p><%= @lecture.content %></p>
 <p><%= @lecture.date %></p>
 <br />
+<% if @teacher_session %>
+    <%= button_to "Edit", edit_lecture_path(@lecture), method: :get %>
+    <%= button_to "Delete", @lecture, method: :delete %>
+<% end %>
 <p><%= link_to "Back to Course", @course %></p>
