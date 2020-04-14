@@ -2,9 +2,9 @@ class CoursesController < ApplicationController
 
     def index
         if student_session
-            @courses = Student.courses_by_user_id(session[:user_id])
+            @courses = Student.courses_by_id(session[:id])
         elsif teacher_session
-            @courses = Teacher.courses_by_user_id(session[:user_id])
+            @courses = Teacher.courses_by_id(session[:id])
         else
             redirect_to login_path
         end
@@ -17,13 +17,12 @@ class CoursesController < ApplicationController
     end
 
     def new
-        @course = Course.new
+        teacher_session ? @course = Course.new : redirect_to courses_path
     end
 
     def create
-        #to be implemented
         @course = Course.new(course_params)
-        @course.teacher_id = Login.find(session[:user_id].teacher.id)
+        @course.teacher_id = Teacher.find(id)
         if @course.save
             redirect_to @course
         else
