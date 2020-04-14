@@ -1,7 +1,13 @@
 class CoursesController < ApplicationController
 
     def index
-        @courses = Course.all
+        if student_session
+            @courses = Student.courses_by_user_id(session[:user_id])
+        elsif teacher_session
+            @courses = Teacher.courses_by_user_id(session[:user_id])
+        else
+            redirect_to login_path
+        end
     end
 
     def show
