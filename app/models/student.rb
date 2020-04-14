@@ -3,7 +3,7 @@ class Student < ApplicationRecord
     has_many :courses, through: :registrations
     belongs_to :login
 
-    def self.courses_by_user_id(id)
+    def self.courses_by_id(id)
         Student.find(id).courses
     end
 end
