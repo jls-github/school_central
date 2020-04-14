@@ -5,14 +5,10 @@ class SessionsController < ApplicationController
 
     def create #clean up this logic, put it into the model as much as possible
         @login = Login.find_by(username_param)
-        if @login
-            if @login.authenticate(password_param)
-                set_user_id
-                set_role
-                redirect_to courses_path #change this to dashboard once implemented
-            else
-                render :new
-            end
+        if @login && @login.authenticate(password_param)
+            set_user_id
+            set_role
+            redirect_to courses_path #change this to dashboard once implemented
         else
             render :new
         end
@@ -29,11 +25,7 @@ class SessionsController < ApplicationController
     end
 
     def set_role
-        if @login.student
-            session[:role] = 0
-        else
-            session[:role] = 1
-        end
+        @login.student ? session[:role] = 0 : session[:role] = 1
     end
 
     def set_user_id
