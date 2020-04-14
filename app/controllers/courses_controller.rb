@@ -17,12 +17,16 @@ class CoursesController < ApplicationController
     end
 
     def new
-        teacher_session ? @course = Course.new : redirect_to courses_path
+        if teacher_session
+            @course = Course.new
+        else
+            redirect_to courses_path
+        end
     end
 
     def create
         @course = Course.new(course_params)
-        @course.teacher_id = Teacher.find(id)
+        @course.teacher_id = Teacher.find(session[:id]).id
         if @course.save
             redirect_to @course
         else
