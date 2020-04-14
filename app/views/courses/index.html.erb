@@ -1,3 +1,4 @@
+<div>
 <% @courses.each do |course| %>
     <h3><%= link_to course.title, course %></h3>
 
@@ -8,3 +9,4 @@
 
     <p><%= "#{course.subject} - #{course.number}" %></p>
 <% end %>
+</div>

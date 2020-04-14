@@ -7,9 +7,34 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Carousel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href=<%= courses_path %>>Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=<%= teachers_path %>>Staff</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div>
+      <main>
+        <div>
+          <%= yield %>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
