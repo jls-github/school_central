@@ -16,4 +16,12 @@ class CoursesController < ApplicationController
         @teacher = @course.teacher
     end
 
+    def new
+        @course = Course.new
+    end
+
+    def create
+        #to be implemented
+    end
+
 end
