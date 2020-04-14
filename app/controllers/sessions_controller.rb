@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
         if @login
             if @login.authenticate(password_param)
                 session[:user_id] = @login.id
-                if @login.student
-                    session[:role] = 0
-                else
-                    session[:role] = 1
-                end
+                set_role
+                redirect_to courses_path #change this to dashboard once implemented
+            else
+                render :new
             end
+        else
+            render :new
         end
-        redirect_to courses_path #change this to dashboard once implemented
     end
 
     private
@@ -26,6 +26,14 @@ class SessionsController < ApplicationController
 
     def password_param
         params.require(:login).permit(:password)[:password]
+    end
+
+    def set_role
+        if @login.student
+            session[:role] = 0
+        else
+            session[:role] = 1
+        end
     end
 
 end
