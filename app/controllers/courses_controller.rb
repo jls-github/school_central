@@ -43,6 +43,7 @@ class CoursesController < ApplicationController
 
     def destroy
         Course.find(params[:id]).destroy
+        redirect_to courses_path
     end
 
     private
