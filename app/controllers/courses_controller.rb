@@ -3,13 +3,7 @@ class CoursesController < ApplicationController
     before_action :verify_teacher_permissions, only: [:new, :edit, :update, :create, :destroy]
 
     def index
-        if student_session
-            @courses = Student.courses_by_id(session[:id])
-        elsif teacher_session
-            @courses = Teacher.courses_by_id(session[:id])
-        else
-            redirect_to login_path
-        end
+        student_session ? @courses = Student.courses_by_id(session[:id]) : @courses = Teacher.courses_by_id(session[:id])
     end
 
     def show
