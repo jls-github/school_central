@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
         session[:role] == 1
     end
 
+    def verify_login
+        if !session[:id]
+            redirect_to login_path
+        end
+    end
+
 end
