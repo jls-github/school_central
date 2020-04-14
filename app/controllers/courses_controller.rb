@@ -22,6 +22,19 @@ class CoursesController < ApplicationController
 
     def create
         #to be implemented
+        @course = Course.new(course_params)
+        @course.teacher_id = Login.find(session[:user_id].teacher.id)
+        if @course.save
+            redirect_to @course
+        else
+            render @course #need to add an error message here once validations are implemented
+        end
+    end
+
+    private
+
+    def course_params
+        params.require(:course).permit(:subject, :number, :title)
     end
 
 end
