@@ -1,0 +1,11 @@
+<%= form_for @lecture do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <%= f.label :content %>
+    <%= f.text_area :content %><br>
+    <%= f.label :date %>
+    <%= f.date_field :date %><br>
+    <%= f.label :course %>
+    <%= f.collection_select :course_id, @courses, :id, :number %><br>
+    <%= f.submit %>
+<% end %>
