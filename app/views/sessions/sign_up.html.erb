@@ -4,6 +4,12 @@
     <%= f.label :password %>
     <%= f.password_field :password %><br>
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %><br><br>
+    <%= f.fields_for :student_attributes do |ff| %>
+        <%= ff.label :name %>
+        <%= ff.text_field :name %><br>
+        <%= ff.label :major %>
+        <%= ff.text_field :major %><br>
+    <% end %>
     <%= f.submit "Create Account" %>
 <% end %>
