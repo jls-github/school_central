@@ -26,11 +26,20 @@ class SessionsController < ApplicationController
         @login = Login.new
     end
 
-    def user_creation
-        
+    def create_user
+        @login = Login.new(login_params)
+        if @login.save
+            redirect_to :dashboard_path
+        else
+            render :sign_up
+        end
     end
 
     private
+
+    def login_params
+        params.require(:login).permit(:username, :password, :password_confirmation)
+    end
 
     def username_param
         params.require(:login).permit(:username)
