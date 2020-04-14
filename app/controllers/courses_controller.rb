@@ -14,11 +14,7 @@ class CoursesController < ApplicationController
     end
 
     def new
-        if teacher_session
-            @course = Course.new
-        else
-            redirect_to courses_path
-        end
+        @course = Course.new
     end
 
     def create
@@ -32,11 +28,8 @@ class CoursesController < ApplicationController
     end
 
     def edit
-        if teacher_session
-            @course = Course.find(params[:id])
-        else
-            redirect_to courses_path
-        end
+        @course = Course.find(params[:id])
+
     end
 
     def update
@@ -49,11 +42,7 @@ class CoursesController < ApplicationController
     end
 
     def destroy
-        if teacher_session
-            Course.find(params[:id]).destroy
-        else
-            redirect_to courses_path
-        end
+        Course.find(params[:id]).destroy
     end
 
     private
