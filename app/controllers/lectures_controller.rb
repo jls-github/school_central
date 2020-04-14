@@ -7,7 +7,7 @@ class LecturesController < ApplicationController
 
     def new
         if teacher_session
-            @lecture = Course.new
+            @lecture = Lecture.new
             @courses = Teacher.courses_by_id(session[:id])
         else
             redirect_to courses_path #change this to dashboard once implemented
@@ -44,7 +44,7 @@ class LecturesController < ApplicationController
     private
 
     def lecture_params
-        params.require(:lecture).permit(:title, content, date, course_id)
+        params.require(:lecture).permit(:title, :content, :date, :course_id)
     end
 
 end
