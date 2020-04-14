@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+    before_action :verify_login
 
     def index
         @teachers = Teacher.all

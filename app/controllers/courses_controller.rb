@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+    before_action :verify_login
 
     def index
         if student_session

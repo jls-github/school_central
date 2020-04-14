@@ -1,4 +1,5 @@
 class LecturesController < ApplicationController
+    before_action :verify_login
 
     def show
         @lecture = Lecture.find(params[:id])
