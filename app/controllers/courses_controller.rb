@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
 
     def edit
         if teacher_session
-            @course = Course.find(params[id])
+            @course = Course.find(params[:id])
         else
             redirect_to courses_path
         end
