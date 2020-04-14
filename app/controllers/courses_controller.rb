@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
     before_action :verify_login
     before_action :verify_teacher_permissions, only: [:new, :edit, :update, :create, :destroy]
+    before_action :import_teacher_session, only: [:index, :show]
 
     def index
         student_session ? @courses = Student.courses_by_id(session[:id]) : @courses = Teacher.courses_by_id(session[:id])
