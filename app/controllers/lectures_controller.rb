@@ -1,6 +1,7 @@
 class LecturesController < ApplicationController
     before_action :verify_login
     before_action :verify_teacher_permissions, only: [:new, :edit, :update, :create, :destroy]
+    before_action :import_teacher_session, only: :show
 
     def show
         @lecture = Lecture.find(params[:id])
@@ -8,12 +9,8 @@ class LecturesController < ApplicationController
     end
 
     def new
-        if teacher_session
-            @lecture = Lecture.new
-            @courses = Teacher.courses_by_id(session[:id])
-        else
-            redirect_to courses_path #change this to dashboard once implemented
-        end
+        @lecture = Lecture.new
+        @courses = Teacher.courses_by_id(session[:id])
     end
 
     def create
@@ -26,12 +23,8 @@ class LecturesController < ApplicationController
     end
 
     def edit
-        if teacher_session
-            @lecture = Lecture.find(params[:id])
-            @courses = Teacher.courses_by_id(session[:id])
-        else
-            redirect_to courses_path #change this tod ashboard once implemented
-        end
+        @lecture = Lecture.find(params[:id])
+        @courses = Teacher.courses_by_id(session[:id])
     end
 
     def update
@@ -44,11 +37,7 @@ class LecturesController < ApplicationController
     end
 
     def destroy
-        if teacher_session
-            Lecture.find(params[:id]).destroy
-        else
-            redirect_to courses_path
-        end
+        Lecture.find(params[:id]).destroy
     end
 
     private
