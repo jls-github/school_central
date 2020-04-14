@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
         session[:role] == 1
     end
 
+    def import_teacher_session
+        if teacher_session
+            @teacher_session = true
+        else
+            @teacher_session = false
+        end
+    end
+
     def verify_login
         if !session[:id]
             redirect_to login_path
