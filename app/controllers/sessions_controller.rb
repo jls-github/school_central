@@ -13,6 +13,14 @@ class SessionsController < ApplicationController
             render :new
         end
     end
+    
+    def permission_not_granted
+
+    end
+
+    def access_denied
+        
+    end
 
     private
 
