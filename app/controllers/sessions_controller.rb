@@ -27,9 +27,10 @@ class SessionsController < ApplicationController
     end
 
     def create_user
+        byebug
         @login = Login.new(login_params)
         if @login.save
-            redirect_to :dashboard_path
+            redirect_to :dashboard
         else
             render :sign_up
         end
@@ -38,7 +39,15 @@ class SessionsController < ApplicationController
     private
 
     def login_params
-        params.require(:login).permit(:username, :password, :password_confirmation)
+        params.require(:login).permit(
+            :username, 
+            :password,
+            :password_confirmation,
+            student_attributes: [
+                :name,
+                :major
+            ]
+        )
     end
 
     def username_param
