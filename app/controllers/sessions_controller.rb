@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
-    def new
+    def new #goes to login page
     end
 
-    def create #clean up this logic, put it into the model as much as possible
+    def create
         @login = Login.find_by(username_param)
         if @login && @login.authenticate(password_param)
             set_user_id
