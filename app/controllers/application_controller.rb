@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def verify_teacher_permissions
+        if !teacher_session
+            redirect_to permission_not_granted_path
+        end
+    end
+
 end

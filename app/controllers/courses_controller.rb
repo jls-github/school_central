@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
     before_action :verify_login
+    before_action :verify_teacher_permissions, only: [:new, :edit, :update, :create, :destroy]
 
     def index
         if student_session
