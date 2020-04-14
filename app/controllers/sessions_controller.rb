@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
     end
 
     def set_user_id
-        student_session ? session[:id] == @login.student.id : session[:id] == @login.teacher.id
+        student_session ? session[:id] = @login.student.id : session[:id] = @login.teacher.id
     end
 
 end
