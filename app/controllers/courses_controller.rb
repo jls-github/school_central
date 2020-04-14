@@ -26,8 +26,25 @@ class CoursesController < ApplicationController
 
     def create
         @course = Course.new(course_params)
-        @course.teacher_id = Teacher.find(session[:id]).id
+        @course.teacher_id = Teacher.find(session[:id]).id  
         if @course.save
+            redirect_to @course
+        else
+            render @course #need to add an error message here once validations are implemented
+        end
+    end
+
+    def edit
+        if teacher_session
+            @course = Course.find(params[id])
+        else
+            redirect_to courses_path
+        end
+    end
+
+    def update
+        @course = Course.find(params[:id])
+        if @course.update(course_params)
             redirect_to @course
         else
             render @course #need to add an error message here once validations are implemented
