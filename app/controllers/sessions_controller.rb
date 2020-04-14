@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         @login = Login.find_by(username_param)
         if @login
             if @login.authenticate(password_param)
-                session[:user_id] = @login.id
+                set_user_id
                 set_role
                 redirect_to courses_path #change this to dashboard once implemented
             else
@@ -34,6 +34,10 @@ class SessionsController < ApplicationController
         else
             session[:role] = 1
         end
+    end
+
+    def set_user_id
+        session[:user_id] = @login.id
     end
 
 end
