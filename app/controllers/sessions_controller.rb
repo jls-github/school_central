@@ -22,6 +22,14 @@ class SessionsController < ApplicationController
         
     end
 
+    def sign_up
+        @login = Login.new
+    end
+
+    def user_creation
+        
+    end
+
     private
 
     def username_param
