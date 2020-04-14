@@ -10,8 +10,22 @@ Lecture.destroy_all
 Course.destroy_all
 Teacher.destroy_all
 
-Teacher.create(name: "Henry McIlroy", bio: "I was the first teacher here! I teach science.")
-Teacher.create(name: "Sarah Johnson", bio: "I was the second teacher here! I teach English and Speech")
+Login.create(username: "Username1", password: "Password")
+Login.create(username: "Username2", password: "Password")
+Login.create(username: "Username3", password: "Password")
+Login.create(username: "Username4", password: "Password")
+
+puts "Seeded logins"
+
+Teacher.create(name: "Henry McIlroy", bio: "I was the first teacher here! I teach science.", login_id: Login.first.id)
+Teacher.create(name: "Sarah Johnson", bio: "I was the second teacher here! I teach English and Speech", login_id: Login.second.id)
+
+puts "Seeded teachers"
+
+Student.create(name: "James Morrison", major: "Science", login_id: Login.third.id)
+Student.create(name: "Mary Lawson", major: "English", login_id: Login.fourth.id)
+
+puts "Seeded students"
 
 Course.create(subject: "Biology", number: "BI-202", title: "Elements of Biology", teacher_id: Teacher.first.id)
 Course.create(subject: "Chemistry", number: "CH-202", title: "Organic Chemistry", teacher_id: Teacher.first.id)
@@ -19,5 +33,9 @@ Course.create(subject: "Anatomy and Physiology", number: "AP-202", title: "Advan
 Course.create(subject: "Public Speaking", number: "SP-102", title: "Basics of Public Speaking", teacher_id: Teacher.second.id)
 Course.create(subject: "English", number: "EN-102", title: "Grammer and Composition", teacher_id: Teacher.second.id)
 
+puts "Seeded courses"
+
 Lecture.create(course_id: Course.fourth.id, title: "Expository Speeeches Pt 1", content: "This is the first part of how you give an expository speech", date: Date.new(2020, 02, 03))
 Lecture.create(course_id: Course.fourth.id, title: "Expository Speeeches Pt 2", content: "This is the second part of how you give an expository speech", date: Date.new(2020, 02, 05))
+
+puts "Seeded lectures"
