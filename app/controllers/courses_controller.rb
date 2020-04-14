@@ -51,6 +51,14 @@ class CoursesController < ApplicationController
         end
     end
 
+    def destroy
+        if teacher_session
+            Course.find(params[:id]).destroy
+        else
+            redirect_to courses_path
+        end
+    end
+
     private
 
     def course_params
