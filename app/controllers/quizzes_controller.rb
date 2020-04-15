@@ -26,11 +26,19 @@ class QuizzesController < ApplicationController
 
     def new
         @quiz = Quiz.new
+        5.times do
+            @quiz.questions.build
+        end
+        @quiz.questions.each do |question|
+            4.times do
+                question.answers.build
+            end
+        end
         @courses = Course.courses_by_teacher_id(session[:id])
     end
 
     def create
-        
+        byebug
     end
 
     private

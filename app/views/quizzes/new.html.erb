@@ -7,34 +7,23 @@
         <%= f.collection_select :course_id, @courses, :id, :title %> 
     </div><hr>
 
-    <% 5.times do %>
 
-        <%= f.fields_for :questions_attributes do |ff| %>
+        <%= f.fields_for :questions do |ff| %>
             <%= ff.label :question %>
-            <%= ff.text_field :text, size: "100" %><br>
+            <%= ff.text_field :text, size: "100" %><br><hr>
 
-            <%= ff.fields_for :answers_attributes do |fff| %>
+            <%= ff.fields_for :answers do |fff| %>
                 <div class="row m-3">
                     <div class="col">
-                        <%= fff.label :correct_answer %>
+                        <%= fff.label :answer %>
                         <%= fff.text_field :text %>
-                        <%= fff.hidden_field :correct, value: true %><br>
+                        <%= fff.select :correct, [["Right Answer", true], ["Wrong Answer", false]] %><br>
                     </div>
-
-                    <% 3.times do %>
-                        <div class="col">
-                            <%= fff.label :wrong_answer %>
-                            <%= fff.text_field :text %>
-                            <%= fff.hidden_field :correct, value: false %><br>
-                        </div>
-                    <% end %>
                 </div><hr>
 
             <% end %>
 
         <% end %>
-
-    <% end %>
 
     <%= f.submit %>
 
