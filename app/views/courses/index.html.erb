@@ -1,14 +1,15 @@
+<h1>All Courses</h2><hr>
 <div>
 <% if !@courses.empty? %>
     <% @courses.each do |course| %>
         <h3><%= link_to course.title, course %></h3>
+        <p><%= "#{course.subject} - #{course.number}" %></p>
 
         <% if @teacher_session %>
             <%= button_to "Edit", edit_course_path(course), method: :get %>
             <%= button_to "Delete", course, method: :delete %>
         <% end %>
 
-        <p><%= "#{course.subject} - #{course.number}" %></p>
     <% end %>
 <% else %>
     <h3>No Courses Listed</h3>
