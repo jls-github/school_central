@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
     has_many :registrations
     has_many :courses, through: :registrations
+    has_many :answer_submissions
     belongs_to :login
 
     def self.courses_by_id(id)
