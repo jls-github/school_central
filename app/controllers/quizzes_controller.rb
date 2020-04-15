@@ -24,6 +24,15 @@ class QuizzesController < ApplicationController
         redirect_to courses_path #change this to a results page
     end
 
+    def new
+        @quiz = Quiz.new
+        @courses = Course.courses_by_teacher_id(session[:id])
+    end
+
+    def create
+        
+    end
+
     private
 
     def answer_submission_params
