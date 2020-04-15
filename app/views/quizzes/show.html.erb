@@ -1,15 +1,27 @@
 <h2><%= @quiz.title %></h2><br>
-<% if @quiz_taken == false %>
-    <%= form_for :answer_submission, url: quiz_submission_path do |f| %>
-        <% @questions.each do |question| %>
-            <p><%= @question_count %>. <%= question.text %></p>
-                <%= f.collection_select "answer_id_#{@question_count}", question.answers, :id, :text %>
-            <% @question_count += 1 %>
-            <br>
-            <br>
-        <% end %>
-        <%= f.submit "Submit Quiz" %>
+<% if @teacher_session %>
+    <% @questions.each do |question| %>
+        <p><%= @question_count %>. <%= question.text %></p>
+            <% question.answers.each do |answer| %>
+                <%= answer.text %> - <%= answer.correct %><br>
+            <% end %>
+        <% @question_count += 1 %>
+        <br>
+        <br>
     <% end %>
 <% else %>
-    <%= "You scored #{@percentage}% on this quiz." %>
+    <% if @quiz_taken == false %>
+        <%= form_for :answer_submission, url: quiz_submission_path do |f| %>
+            <% @questions.each do |question| %>
+                <p><%= @question_count %>. <%= question.text %></p>
+                    <%= f.collection_select "answer_id_#{@question_count}", question.answers, :id, :text %>
+                <% @question_count += 1 %>
+                <br>
+                <br>
+            <% end %>
+            <%= f.submit "Submit Quiz" %>
+        <% end %>
+    <% else %>
+        <%= "You scored #{@percentage}% on this quiz." %>
+    <% end %>
 <% end %>
