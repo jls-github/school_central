@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
+  post '/quizzes/submission', to: "quizzes#submission", as: :quiz_submission
+
   resources :quizzes, only: [:show]
   resources :teachers, only: [:show, :index]
   resources :lectures, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :courses
+
   get '/dashboard', to: "static#dashboard", as: :dashboard
 
   get '/login', to: "sessions#new", as: "login"
