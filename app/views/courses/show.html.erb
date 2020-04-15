@@ -3,7 +3,7 @@
 <h4>Taught By: <%= link_to @teacher.name, @teacher %>
 <br />
 <h4>Lectures</h4>
-<% if !@lectures.empty? %> <!-- This needs to be moved to the model -->
+<% if !@lectures.empty? %>
     <ul>
     <% @lectures.each do |lecture| %>
         <li><%= link_to lecture.title, lecture %></li>
@@ -11,4 +11,16 @@
     </ul>
 <% else %>
     <p>No listed lectures</p>
+<% end %>
+
+<h4>Quizzes</h4>
+
+<% if !@quizzes.empty? %>
+    <ul>
+    <% @quizzes.each do |quiz| %>
+        <li><%= link_to quiz.title, quiz %></li>
+    <% end %>
+    </ul>
+<% else %>
+    <p>No listed quizzes</p>
 <% end %>

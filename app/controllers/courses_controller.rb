@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
         @course = Course.find(params[:id])
         @lectures = @course.lectures
         @teacher = @course.teacher
+        @quizzes = @course.quizzes
     end
 
     def new
