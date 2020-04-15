@@ -1,0 +1,41 @@
+<h1>New Quiz</h1>
+<%= form_for @quiz do |f| %>
+    <div class="m-4">
+        <%= f.label :title %>
+        <%= f.text_field :title %><br>
+        <%= f.label :Course %>
+        <%= f.collection_select :course_id, @courses, :id, :title %> 
+    </div><hr>
+
+    <% 5.times do %>
+
+        <%= f.fields_for :questions_attributes do |ff| %>
+            <%= ff.label :question %>
+            <%= ff.text_field :text, size: "100" %><br>
+
+            <%= ff.fields_for :answers_attributes do |fff| %>
+                <div class="row m-3">
+                    <div class="col">
+                        <%= fff.label :correct_answer %>
+                        <%= fff.text_field :text %>
+                        <%= fff.hidden_field :correct, value: true %><br>
+                    </div>
+
+                    <% 3.times do %>
+                        <div class="col">
+                            <%= fff.label :wrong_answer %>
+                            <%= fff.text_field :text %>
+                            <%= fff.hidden_field :correct, value: false %><br>
+                        </div>
+                    <% end %>
+                </div><hr>
+
+            <% end %>
+
+        <% end %>
+
+    <% end %>
+
+    <%= f.submit %>
+
+<% end %><br><br>

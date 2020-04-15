@@ -1,6 +1,7 @@
 class Quiz < ApplicationRecord
   belongs_to :course
   has_many :questions
+  accepts_nested_attributes_for :questions
 
   def answers_from_student(student_id)
     answers = self.questions.map {|question| question.answers }.flatten
