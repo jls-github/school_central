@@ -1,12 +1,16 @@
 <div>
-<% @courses.each do |course| %>
-    <h3><%= link_to course.title, course %></h3>
+<% if !@courses.empty? %>
+    <% @courses.each do |course| %>
+        <h3><%= link_to course.title, course %></h3>
 
-    <% if @teacher_session %>
-        <%= button_to "Edit", edit_course_path(course), method: :get %>
-        <%= button_to "Delete", course, method: :delete %>
+        <% if @teacher_session %>
+            <%= button_to "Edit", edit_course_path(course), method: :get %>
+            <%= button_to "Delete", course, method: :delete %>
+        <% end %>
+
+        <p><%= "#{course.subject} - #{course.number}" %></p>
     <% end %>
-
-    <p><%= "#{course.subject} - #{course.number}" %></p>
+<% else %>
+    <h3>No Courses Listed</h3>
 <% end %>
 </div>
