@@ -37,8 +37,10 @@ class LecturesController < ApplicationController
     end
 
     def destroy
-        Lecture.find(params[:id]).destroy
-        redirect_to courses_path
+        @quiz = Lecture.find(params[:id])
+        @course = @lecture.course
+        @lecture.destroy
+        redirect_to @course 
     end
 
     private

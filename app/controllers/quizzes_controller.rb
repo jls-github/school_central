@@ -55,6 +55,13 @@ class QuizzesController < ApplicationController
         end
     end
 
+    def destroy
+        @quiz = Quiz.find(params[:id])
+        @course = @quiz.course
+        @quiz.destroy
+        redirect_to @course 
+    end
+
     private
 
     def answer_submission_params
