@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :quizzes
   resources :teachers, only: [:show, :index]
   resources :lectures, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :courses
