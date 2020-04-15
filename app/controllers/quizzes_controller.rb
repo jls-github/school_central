@@ -1,4 +1,6 @@
 class QuizzesController < ApplicationController
+    before_action :verify_login
+    before_action :verify_teacher_permissions, only: [:new, :create]
 
     def show
         @quiz = Quiz.find(params[:id])
