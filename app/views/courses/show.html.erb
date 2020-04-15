@@ -1,6 +1,6 @@
-<h3><%= @course.title %></h3>
-<h4><%= "#{@course.subject} - #{@course.number}" %></h4>
-<h4>Taught By: <%= link_to @teacher.name, @teacher %>
+<h1><%= @course.title %></h1>   
+<h5><%= "#{@course.subject} - #{@course.number}" %></h5>
+<h5>Taught By: <%= link_to @teacher.name, @teacher %><h5>
 <br />
 <h4>Lectures</h4>
 <% if !@lectures.empty? %>

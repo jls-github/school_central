@@ -1,4 +1,26 @@
-<h1>Dashboard</h1>
+<h1 class="text-center">Dashboard</h1>
 
-<%= link_to "Courses", courses_path %><br>
-<%= link_to "Staff", teachers_path %>
+<div class=row>
+
+<div class="col card m-1" style="width: 18rem;">
+    <a href=<%= courses_path %>
+    <div>
+        <img class="card-img-top img-responsive mt-3" src=<%= image_path("books.jpg") %> alt="Card image cap">
+        <div class="card-body text-center">
+            <h3 class="card-title h3">Courses</h3>
+        </div>
+    </div
+</div>
+
+<div class="col card m-1" style="width: 18rem;">
+    <a href=<%= teachers_path %>
+    <div>
+    <img class="card-img-top im-responsive mt-3" src=<%= image_path("professor.jpg") %> alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title h3">Staff</h5>
+        </div>
+     </div>
+     </a>
+</div>
+
+</div>
