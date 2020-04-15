@@ -8,6 +8,7 @@
         <% @question_count += 1 %>
         <br>
         <br>
+        <%= button_to "Delete", @quiz, method: :delete %>
     <% end %>
 <% else %>
     <% if @quiz_taken == false %>
