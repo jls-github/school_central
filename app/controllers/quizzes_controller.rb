@@ -38,13 +38,33 @@ class QuizzesController < ApplicationController
     end
 
     def create
+        @quiz = Quiz.new(quiz_params)
         byebug
+        if @quiz.save
+            redirect_to @quiz.course
+        else
+            render :new
+        end
     end
 
     private
 
     def answer_submission_params
         params.require(:answer_submission).permit(params[:answer_submission].keys)
+    end
+
+    def quiz_params
+        params.require(:quiz).permit(
+            :title,
+            :course_id,
+            questions_attributes: [
+                :text,
+                answers_attributes: [
+                    :text,
+                    :correct
+                ]
+            ]
+        )
     end
 
 end
