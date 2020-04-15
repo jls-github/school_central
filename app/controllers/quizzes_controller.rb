@@ -2,8 +2,15 @@ class QuizzesController < ApplicationController
 
     def show
         @quiz = Quiz.find(params[:id])
-        @questions = @quiz.questions
-        @question_count = 1
+        @student = Student.find(session[:id])
+        if @student.taken_quiz?(@quiz.id)
+            @quiz_taken = true
+            @percentage = @student.percentage_for_quiz(@quiz.id)
+        else
+            @quiz_taken = false
+            @questions = @quiz.questions
+            @question_count = 1
+        end
     end
 
     def submission #this is VERY hackable

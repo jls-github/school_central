@@ -12,6 +12,10 @@ class Student < ApplicationRecord
         self.answer_submissions.map {|submission| submission.quiz }.uniq
     end
 
+    def taken_quiz?(quiz_id)
+        self.taken_quizzes.include?(Quiz.find(quiz_id))
+    end
+
     def percentage_for_quiz(quiz_id)
         answers = Quiz.find(quiz_id).answers_from_student(self.id)
         total_correct = answers.select{|answer| answer.correct == true }.length
