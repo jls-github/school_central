@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Quiz.destroy_all
 Lecture.destroy_all
 Course.destroy_all
 Teacher.destroy_all
+Student.destroy_all
+Login.destroy_all
 
 Login.create(username: "Username1", password: "Password")
 Login.create(username: "Username2", password: "Password")
@@ -39,3 +42,32 @@ Lecture.create(course_id: Course.fourth.id, title: "Expository Speeeches Pt 1", 
 Lecture.create(course_id: Course.fourth.id, title: "Expository Speeeches Pt 2", content: "This is the second part of how you give an expository speech", date: Date.new(2020, 02, 05))
 
 puts "Seeded lectures"
+
+Quiz.create(course_id: Course.first.id, title: "Our first quiz!")
+
+puts "Quizzes seeded"
+
+Question.create(quiz_id: Quiz.first.id, text: "First Question")
+Question.create(quiz_id: Quiz.first.id, text: "Second Question")
+Question.create(quiz_id: Quiz.first.id, text: "Third Question")
+
+puts "Questions seeded"
+
+Answer.create(question_id: Question.first.id, text: "Correct Answer", correct: true)
+Answer.create(question_id: Question.first.id, text: "Wrong Answer", correct: false)
+Answer.create(question_id: Question.first.id, text: "Wrong Answer", correct: false)
+Answer.create(question_id: Question.first.id, text: "Wrong Answer", correct: false)
+
+Answer.create(question_id: Question.second.id, text: "Wrong Answer", correct: false)
+Answer.create(question_id: Question.second.id, text: "Wrong Answer", correct: false)
+Answer.create(question_id: Question.second.id, text: "Wrong Answer", correct: false)
+Answer.create(question_id: Question.second.id, text: "Correct Answer", correct: true)
+
+Answer.create(question_id: Question.third.id, text: "Wrong Answer", correct: false)
+Answer.create(question_id: Question.third.id, text: "Wrong Answer", correct: false)
+Answer.create(question_id: Question.third.id, text: "Correct Answer", correct: true)
+Answer.create(question_id: Question.third.id, text: "Wrong Answer", correct: false)
+
+puts "Answers seeded"
+
+
