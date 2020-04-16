@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
-    # skip_before_action :verify_authenticity_token, only: :create
+    skip_before_action :verify_authenticity_token, only: :create #this is vulnerable to CSRF attacks - need to revisit this for security
 
 
     def new #goes to login page
         render layout: false
-        byebug
     end
 
     def create
