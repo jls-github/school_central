@@ -1,24 +1,20 @@
-# README
+# Student Central
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+Student Central offers an online learning platform intended to equip the next generation. This application allows students to register for classes, view lectures, and take quizzes. Professors can log on to edit and create classes, lectures, and quizzes.
 
-* Ruby version
+## installation
 
-* System dependencies
+1. Clone down the repository
+2. Run bundle install
+3. Run rails db:migrate
+4. Run rails db:seed
+5. Run rails s
+6. Navigate to http://127.0.0.1:3000/dashboard in your browser
 
-* Configuration
+## Further Implementation
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Validations for forms
+- Ability for professors to add students into their classes
+- Ability for students to see their overall class grade
