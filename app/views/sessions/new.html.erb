@@ -1,7 +1,17 @@
 <%= form_for :login do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
-    <%= f.submit "Log In" %>
+    <div class="container bg-white border w-25 pb-4 pt-2 rounded">
+        <div class="row d-flex justify-content-center m-2">
+            <h1>Log In</h1>
+        </div>
+        <div class="row d-flex justify-content-center m-2">
+            <%= f.text_field :username, placeholder: "Username", class: "mx-1 text-muted" %>
+        </div>
+        <div class="row d-flex justify-content-center m-2">
+            <%= f.password_field :password, placeholder: "Password", class: "mx-1" %>
+        </div>
+        <div class="row d-flex justify-content-center m-2">
+            <%= f.submit "Log In", class: "mx-1" %>
+            <%= button_to "Sign Up", :sign_up, class: "mx-1" %>
+        </div>
+    </div>
 <% end %>
