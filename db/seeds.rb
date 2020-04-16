@@ -78,7 +78,7 @@ Registration.create(student_id: Student.first.id, course_id: Course.fifth.id)
 puts "Seeded registrations"
 
 Lecture.create(course_id: Course.first.id, title: "Class Introduction", content: "Welcome to the class! This class covers biology - the study of living things! We are excited to have you with us on this journey.", date: Date.new(2020, 04, 15))
-Lecture.create(course_id: Course.fourth.id, title: "Lecture 1: What is Life?", content: "We discuss the nature of life", date: Date.new(2020, 04, 17))
+Lecture.create(course_id: Course.first.id, title: "Lecture 1: What is Life?", content: "We discuss the nature of life", date: Date.new(2020, 04, 17))
 
 puts "Seeded lectures"
 
