@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   post '/quizzes/submission', to: "quizzes#submission", as: :quiz_submission
 
+  get '/courses/register', to: "courses#registration", as: :course_registration
+
+  post '/courses/register', to: "courses#register", as: :register
+
   resources :quizzes, only: [:show, :new, :create, :destroy]
   resources :teachers, only: [:show, :index]
   resources :lectures, only: [:show, :new, :create, :edit, :update, :destroy]

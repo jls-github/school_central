@@ -47,6 +47,28 @@ class CoursesController < ApplicationController
         redirect_to courses_path
     end
 
+    def registration
+        if teacher_session
+            redirect_to courses_path
+        else
+            @courses = Course.all
+            @registration = Registration.new
+        end
+    end
+
+    def register
+        if teacher_session
+            redirect_to courses_path
+        else
+            @registration = Registration.new(course_id: params[:registration][:course_id], student_id: session[:id])
+            if @registration.save
+                redirect_to Course.find(params[:registration][:course_id])
+            else
+                render :registration
+            end
+        end
+    end
+
     private
 
     def course_params
