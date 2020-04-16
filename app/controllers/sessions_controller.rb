@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
     end
 
     def create_user
-        byebug
+        # byebug
         @login = Login.new(login_params)
         if @login.save
             redirect_to :dashboard
@@ -40,8 +40,9 @@ class SessionsController < ApplicationController
     end
 
     def logout
-        session.clear
-        redirect_to login_path
+        session.delete :id
+        session.delete :role
+        redirect_to dashboard_path
     end
 
     private
