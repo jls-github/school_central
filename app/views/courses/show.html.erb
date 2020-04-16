@@ -12,6 +12,9 @@
 <% else %>
     <p>No listed lectures</p>
 <% end %>
+<% if @teacher_session %>
+    <%= button_to "Create Lecture", new_lecture_path, method: :get %>
+<% end %>
 
 <h4>Quizzes</h4>
 
@@ -23,4 +26,7 @@
     </ul>
 <% else %>
     <p>No listed quizzes</p>
+<% end %>
+<% if @teacher_session %>
+    <%= button_to "Create Quiz", new_quiz_path, method: :get %>
 <% end %>
