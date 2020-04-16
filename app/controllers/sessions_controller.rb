@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     def new #goes to login page
+        render layout: false
     end
 
     def create

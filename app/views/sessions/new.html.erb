@@ -1,17 +1,41 @@
-<%= form_for :login do |f| %>
-    <div class="container bg-white border w-25 pb-4 pt-2 rounded">
-        <div class="row d-flex justify-content-center m-2">
-            <h1>Log In</h1>
-        </div>
-        <div class="row d-flex justify-content-center m-2">
-            <%= f.text_field :username, placeholder: "Username", class: "mx-1 text-muted" %>
-        </div>
-        <div class="row d-flex justify-content-center m-2">
-            <%= f.password_field :password, placeholder: "Password", class: "mx-1" %>
-        </div>
-        <div class="row d-flex justify-content-center m-2">
-            <%= f.submit "Log In", class: "mx-1" %>
-            <%= button_to "Sign Up", :sign_up, class: "mx-1" %>
-        </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SchoolCentral</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+    <body style="background-image: url(<%= image_path("cover.jpg") %>); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div style="margin-top: 20vh">
+        <%= form_for :login do |f| %>
+            <div class="container bg-light border w-25 pb-4 pt-2 rounded">
+                <div class="row d-flex justify-content-center m-2">
+                    <h1>School Central</h1>
+                </div>
+                <div class="row d-flex justify-content-center m-2">
+                    <h5>Learning - Innovation - Success</h5>
+                </div>
+                <div class="row d-flex justify-content-center m-2">
+                    <h4>Please Sign In</h4>
+                </div>
+                <div class="row d-flex justify-content-center m-2">
+                    <%= f.text_field :username, placeholder: "Username", class: "mx-1" %>
+                </div>
+                <div class="row d-flex justify-content-center m-2">
+                    <%= f.password_field :password, placeholder: "Password", class: "mx-1" %>
+                </div>
+                <div class="row d-flex justify-content-center m-2">
+                    <%= f.submit "Log In", class: "mx-1" %>
+                    <%= button_to "Sign Up", :sign_up, class: "mx-1" %>
+                </div>
+            </div>
+            
+        <% end %>
     </div>
-<% end %>
+    </body>
+</html>
