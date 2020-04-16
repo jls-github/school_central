@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
+    # skip_before_action :verify_authenticity_token, only: :create
+
 
     def new #goes to login page
         render layout: false
+        byebug
     end
 
     def create
@@ -38,7 +41,7 @@ class SessionsController < ApplicationController
     end
 
     def logout
-        reset_session
+        session.clear
         redirect_to login_path
     end
 
