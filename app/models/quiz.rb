@@ -13,4 +13,14 @@ class Quiz < ApplicationRecord
     end
     student_answers
   end
+
+  def destroy_with_children
+    questions = self.questions
+    answers = questions.map {|question| question.answers}.flatten
+    answer_submissions = answers.map {|answer| answer.answer_submissions}.flatten
+    answer_submissions.each {|o| o.destroy }
+    answers.each {|o| o.destroy}
+    questions.each {|o| o.destroy}
+    self.destroy
+  end
 end
