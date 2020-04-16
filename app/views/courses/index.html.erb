@@ -16,4 +16,7 @@
 <% else %>
     <h3>No Courses Listed</h3>
 <% end %>
+<% if !@teacher_session %>
+    <%= button_to "Register for Courses", {controller: :courses, action: :registration}, method: :get %>
+<% end %>
 </div>
