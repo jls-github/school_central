@@ -58,7 +58,7 @@ class QuizzesController < ApplicationController
     def destroy
         @quiz = Quiz.find(params[:id])
         @course = @quiz.course
-        @quiz.destroy
+        @quiz.destroy_with_children
         redirect_to @course 
     end
 
