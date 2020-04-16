@@ -1,7 +1,7 @@
-<h3><%= @course.title %></h3>
+<h1><%= @course.title %></h1>
 <h4><%= @lecture.title %></h4>
 <p><%= @lecture.content %></p>
-<p><%= @lecture.date %></p>
+<p><%= @lecture.display_date %></p>
 <br />
 <% if @teacher_session %>
     <%= button_to "Edit", edit_lecture_path(@lecture), method: :get %>
