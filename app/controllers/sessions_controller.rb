@@ -36,6 +36,11 @@ class SessionsController < ApplicationController
         end
     end
 
+    def logout
+        reset_session
+        redirect_to login_path
+    end
+
     private
 
     def login_params
