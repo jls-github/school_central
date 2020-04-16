@@ -4,7 +4,7 @@
 
 Student Central offers an online learning platform intended to equip the next generation. This application allows students to register for classes, view lectures, and take quizzes. Professors can log on to edit and create classes, lectures, and quizzes.
 
-## installation
+## Installation
 
 1. Clone down the repository
 2. Run bundle install
