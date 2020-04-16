@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
         if @login && @login.authenticate(password_param)
             set_role
             set_user_id
-            redirect_to courses_path #change this to dashboard once implemented
+            redirect_to dashboard_path
         else
-            render :new
+            redirect_to login_path
         end
     end
     
