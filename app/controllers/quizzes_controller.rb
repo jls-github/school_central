@@ -30,7 +30,8 @@ class QuizzesController < ApplicationController
             i += 1
         end
         answer_submissions.each {|submission| submission.save}
-        redirect_to courses_path #change this to a results page
+        @quiz = answer_submissions[0].answer.question.quiz
+        redirect_to @quiz #change this to a results page
     end
 
     def new
