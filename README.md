@@ -1,4 +1,4 @@
-# Student Central
+# School Central
 
 ## Overview
 
