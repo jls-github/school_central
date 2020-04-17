@@ -15,6 +15,6 @@ Student Central offers an online learning platform intended to equip the next ge
 
 ## Further Implementation
 
-- Validations for forms
+- Validations for quiz creation
 - Ability for professors to add students into their classes
 - Ability for students to see their overall class grade
