@@ -35,11 +35,12 @@
                     <%= f.password_field :password, placeholder: "Password", class: "mx-1" %>
                 </div>
                 <div class="row d-flex justify-content-center m-2">
-                    <%= f.submit "Log In", class: "mx-1" %>
-                    <%= button_to "Sign Up", :sign_up, class: "mx-1" %>
+                    <%= f.submit "Log In", class: "mx-1 btn btn-primary btn-block w-75" %>
+                </div>
+                <div class="row d-flex justify-content-center m-2">
+                    <a href=<%= sign_up_path %> class="mx-1 btn btn-primary btn-block w-75">Sign Up!</a>
                 </div>
             </div>
-            
         <% end %>
     </div>
     </body>

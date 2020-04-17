@@ -164,10 +164,10 @@
 
 ## Friday
 
-[ ] Validations
+[x] Validations
     [x] Quiz
-    [ ] Lecture
-    [ ] Log In
+    [x] Lecture
+    [x] Log In
 
 # Stretch Goals
 
