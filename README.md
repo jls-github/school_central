@@ -8,7 +8,7 @@ Student Central offers an online learning platform intended to equip the next ge
 
 1. Clone down the repository
 2. Run ```bundle install```
-3. Run rails db:migrate (you may need to run ```yarn install --check-files``` as well)
+3. Run ```rails db:migrate``` (you may need to run ```yarn install --check-files``` as well)
 4. Run ```rails db:seed```
 5. Run ```rails s```
 6. Navigate to http://127.0.0.1:3000/dashboard in your browser
