@@ -160,7 +160,14 @@
 
 [x] Readme
 
-[ ] License
+[x] License
+
+## Friday
+
+[ ] Validations
+    [ ] Quiz
+    [ ] Lecture
+    [ ] Log In
 
 # Stretch Goals
 

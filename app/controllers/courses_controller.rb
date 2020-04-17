@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
         if @course.save
             redirect_to @course
         else
-            render @course #need to add an error message here once validations are implemented
+            render :new
         end
     end
 
@@ -38,7 +38,7 @@ class CoursesController < ApplicationController
         if @course.update(course_params)
             redirect_to @course
         else
-            render @course #need to add an error message here once validations are implemented
+            render :edit
         end
     end
 
