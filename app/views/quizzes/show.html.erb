@@ -1,4 +1,5 @@
-<h2><%= @quiz.title %></h2><br>
+<h1><%= @course.title %></h1><hr>
+<h4><%= @quiz.title %></h4><hr>
 <% if @teacher_session %>
     <% @questions.each do |question| %>
         <p><%= @question_count %>. <%= question.text %></p>
@@ -23,6 +24,8 @@
             <%= f.submit "Submit Quiz" %>
         <% end %>
     <% else %>
-        <h4><%= "You scored #{@percentage}% on this quiz." %></h4>
+        <h5><%= "You scored #{@percentage}% on this quiz." %></h5>
     <% end %>
 <% end %>
+<br>
+<p><%= link_to "Back to Course", @course %></p>
