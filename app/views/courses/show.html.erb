@@ -1,4 +1,7 @@
 <h1><%= @course.title %></h1>   
+<% if @teacher_session %>
+    <%= button_to "Edit Course Info", edit_course_path, method: :get %>
+<% end %>
 <hr>
 <h5><%= "#{@course.subject} - #{@course.number}" %></h5>
 <h5>Taught By: <%= link_to @teacher.name, @teacher %><h5>

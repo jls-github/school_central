@@ -11,6 +11,14 @@ class Course < ApplicationRecord
     def self.courses_by_teacher_id(teacher_id)
         Course.where(teacher_id: teacher_id)
     end
+
+    def number_with_title
+        "#{self.number} - #{self.title}"
+    end
+
+    def subject_with_number
+        "#{self.subject} - #{self.number}"
+    end
     
 
 end
