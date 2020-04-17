@@ -7,11 +7,13 @@ Student Central offers an online learning platform intended to equip the next ge
 ## Installation
 
 1. Clone down the repository
-2. Run bundle install
-3. Run rails db:migrate
-4. Run rails db:seed
-5. Run rails s
+2. Run ```bundle install```
+3. Run rails db:migrate (you may need to run ```yarn install --check-files``` as well)
+4. Run ```rails db:seed```
+5. Run ```rails s```
 6. Navigate to http://127.0.0.1:3000/dashboard in your browser
+
+To see a student's perspective of the website, login with "Student 1" as the username and "Password" as the password. For a professor's view, use "Professor 1" and "Password".
 
 ## Further Implementation
 
