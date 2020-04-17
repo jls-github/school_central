@@ -165,7 +165,7 @@
 ## Friday
 
 [ ] Validations
-    [ ] Quiz
+    [x] Quiz
     [ ] Lecture
     [ ] Log In
 
