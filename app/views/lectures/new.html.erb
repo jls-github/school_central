@@ -1,3 +1,13 @@
+<% if @lecture.errors.any? %>
+  <div class="alert alert-danger">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @lecture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <h1>Create New Lecture</h1>
 <%= form_for @lecture do |f| %>
     <%= f.label :title %>

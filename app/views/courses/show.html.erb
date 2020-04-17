@@ -1,32 +1,37 @@
 <h1><%= @course.title %></h1>   
+<hr>
 <h5><%= "#{@course.subject} - #{@course.number}" %></h5>
 <h5>Taught By: <%= link_to @teacher.name, @teacher %><h5>
-<br />
-<h4>Lectures</h4>
-<% if !@lectures.empty? %>
-    <ul>
-    <% @lectures.each do |lecture| %>
-        <li><%= link_to lecture.title, lecture %></li>
+<hr>
+<h3>Course Content</h3>
+<div class="container">
+    <h4>Lectures</h4>
+    <% if !@lectures.empty? %>
+        <ul>
+        <% @lectures.each do |lecture| %>
+            <li><%= link_to lecture.title, lecture %></li>
+        <% end %>
+        </ul>
+    <% else %>
+        <p>No listed lectures</p>
     <% end %>
-    </ul>
-<% else %>
-    <p>No listed lectures</p>
-<% end %>
-<% if @teacher_session %>
-    <%= button_to "Create Lecture", new_lecture_path, method: :get %>
-<% end %>
-
-<h4>Quizzes</h4>
-
-<% if !@quizzes.empty? %>
-    <ul>
-    <% @quizzes.each do |quiz| %>
-        <li><%= link_to quiz.title, quiz %></li>
+    <% if @teacher_session %>
+        <%= button_to "Create Lecture", new_lecture_path, method: :get %>
     <% end %>
-    </ul>
-<% else %>
-    <p>No listed quizzes</p>
-<% end %>
-<% if @teacher_session %>
-    <%= button_to "Create Quiz", new_quiz_path, method: :get %>
-<% end %>
+    <br>
+
+    <h4>Quizzes</h4>
+
+    <% if !@quizzes.empty? %>
+        <ul>
+        <% @quizzes.each do |quiz| %>
+            <li><%= link_to quiz.title, quiz %></li>
+        <% end %>
+        </ul>
+    <% else %>
+        <p>No listed quizzes</p>
+    <% end %>
+    <% if @teacher_session %>
+        <%= button_to "Create Quiz", new_quiz_path, method: :get %>
+    <% end %>
+</div>

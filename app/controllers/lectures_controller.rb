@@ -18,7 +18,8 @@ class LecturesController < ApplicationController
         if @lecture.save
             redirect_to @lecture
         else
-            render @lecture #need to add an error message here once validations are implemented
+            @courses = Teacher.courses_by_id(session[:id])
+            render :new
         end
     end
 
@@ -32,7 +33,8 @@ class LecturesController < ApplicationController
         if @lecture.update(lecture_params)
             redirect_to @lecture
         else
-            render @lecture #need to add an error message here once validations are implemented
+            @courses = Teacher.courses_by_id(session[:id])
+            render :edit
         end
     end
 
