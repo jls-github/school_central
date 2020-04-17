@@ -4,6 +4,7 @@ class QuizzesController < ApplicationController
 
     def show
         @quiz = Quiz.find(params[:id])
+        @course = @quiz.course
         if teacher_session
             @teacher_session = true
             @questions = @quiz.questions
